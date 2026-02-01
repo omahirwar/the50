@@ -104,42 +104,6 @@ nav a{text-decoration:none;font-weight:600;color:#ff0000;}
 }
 .correct{background:linear-gradient(135deg,#00ff88,#006b44);}
 .wrong{background:linear-gradient(135deg,#ff0044,#6b001f);}
-
-.features,.gallery{
-    padding:90px 20px;
-    background:rgba(255,255,255,.92);
-    text-align:center;
-}
-.features h2,.gallery h2,.testimonials h2{
-    font-size:3em;
-    color:#0052ff;
-}
-.feature-grid,.testimonial-grid,.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-    max-width:1200px;
-    margin:auto;
-}
-.feature,.testimonial,.gallery-item{
-    background:#fff;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-.feature i{font-size:3em;color:#0052ff;margin-bottom:15px;}
-
-.testimonials{
-    padding:90px 20px;
-    background:linear-gradient(45deg,#0052ff,#fff);
-}
-.gallery-item{height:180px;background:linear-gradient(45deg,#0052ff,#fff);}
-footer{
-    background:linear-gradient(45deg,#0052ff,#000);
-    padding:30px;
-    color:#fff;
-    text-align:center;
-}
 </style>
 </head>
 
@@ -171,50 +135,51 @@ footer{
 </div>
 </section>
 
-<section class="features" id="features">
-<h2>Why Build on Base?</h2>
-<div class="feature-grid">
-<div class="feature"><i class="fas fa-layer-group"></i><h3>Ethereum L2</h3><p>Built on OP Stack and secured by Ethereum.</p></div>
-<div class="feature"><i class="fas fa-bolt"></i><h3>Low Fees</h3><p>Ultra-low transaction costs.</p></div>
-<div class="feature"><i class="fas fa-code"></i><h3>Developer Friendly</h3><p>Fully EVM compatible.</p></div>
-</div>
-</section>
-
-<section class="testimonials" id="ecosystem">
-<h2>Base Ecosystem</h2>
-<div class="testimonial-grid">
-<div class="testimonial"><p>DeFi, NFTs, Gaming & Social apps.</p><strong>Onchain Apps</strong></div>
-<div class="testimonial"><p>Backed by Coinbase.</p><strong>Strong Support</strong></div>
-<div class="testimonial"><p>Built for mass adoption.</p><strong>Future Ready</strong></div>
-</div>
-</section>
-
-<section class="gallery" id="gallery">
-<h2>Built on Base</h2>
-<div class="gallery-grid">
-<div class="gallery-item"></div><div class="gallery-item"></div>
-<div class="gallery-item"></div><div class="gallery-item"></div>
-<div class="gallery-item"></div><div class="gallery-item"></div>
-</div>
-</section>
-
-<footer id="contact">
-<p>© 2026 Base • 
-<a href="https://base.org" target="_blank" style="color:#fff">Website</a> | 
-<a href="https://docs.base.org" target="_blank" style="color:#fff">Docs</a> | 
-<a href="https://twitter.com/base" target="_blank" style="color:#fff">X</a> | 
-<a href="https://discord.gg/buildonbase" target="_blank" style="color:#fff">Discord</a>
-</p>
-</footer>
-
 <script>
-const quiz=[
+const quiz = [
 {q:"What is Base?",o:["Ethereum Layer 2","Layer 1","Sidechain"],a:0},
+{q:"Base is built on which blockchain?",o:["Bitcoin","Ethereum","Solana"],a:1},
 {q:"Who supports Base?",o:["Binance","Coinbase","Polygon"],a:1},
 {q:"Base uses which stack?",o:["OP Stack","ZK Stack","Cosmos"],a:0},
-{q:"Base settles on?",o:["Solana","Ethereum","Base"],a:1},
-{q:"Goal of Base?",o:["Trading","NFT only","Next billion users"],a:2}
+{q:"Base is secured by?",o:["Coinbase","Ethereum","Validators"],a:1},
+{q:"Base is a type of?",o:["Optimistic Rollup","ZK Rollup","Sidechain"],a:0},
+{q:"Base transactions settle on?",o:["Base","Ethereum","Solana"],a:1},
+{q:"Base is EVM compatible?",o:["Yes","No","Partially"],a:0},
+{q:"Main goal of Base?",o:["Trading","NFTs","Next billion users"],a:2},
+{q:"Gas fees on Base are?",o:["High","Low","Same as Ethereum"],a:1},
+
+{q:"Smart contracts on Base use?",o:["Rust","Solidity","Move"],a:1},
+{q:"Base belongs to which ecosystem?",o:["Ethereum","Cosmos","Bitcoin"],a:0},
+{q:"Which apps can run on Base?",o:["DeFi","NFTs","All onchain apps"],a:2},
+{q:"Base helps developers by?",o:["Low fees","EVM tools","Both"],a:2},
+{q:"Base improves Ethereum by?",o:["Replacing it","Scaling it","Centralizing it"],a:1},
+{q:"Is Base public?",o:["Yes","No","Private"],a:0},
+{q:"Base is ideal for?",o:["Scalable dApps","Offline apps","Mining"],a:0},
+{q:"Which wallet works with Base?",o:["MetaMask","Phantom","Keplr"],a:0},
+{q:"NFT minting on Base is?",o:["Expensive","Cheaper","Impossible"],a:1},
+{q:"Gaming apps prefer Base because?",o:["Low fees","Fast TX","Both"],a:2},
+
+{q:"Base supports social apps?",o:["Yes","No","Only DeFi"],a:0},
+{q:"Base reduces Ethereum congestion?",o:["Yes","No","Sometimes"],a:0},
+{q:"Base roadmap aligns with?",o:["Ethereum roadmap","Bitcoin roadmap","Solana roadmap"],a:0},
+{q:"Base decentralization comes from?",o:["Coinbase","Ethereum","Validators"],a:1},
+{q:"Base transactions are?",o:["Slow","Fast","Offline"],a:1},
+{q:"Base ecosystem includes?",o:["DeFi","NFTs","Both"],a:2},
+{q:"Base is suitable for enterprises?",o:["Yes","No","Only startups"],a:0},
+{q:"Base was created to scale?",o:["Ethereum","Bitcoin","Coinbase"],a:0},
+{q:"Base vision focuses on?",o:["Mining","Adoption","Profit"],a:1},
+{q:"Base helps onboard users by?",o:["Lower cost","Better UX","Both"],a:2},
+
+{q:"Base improves UX by?",o:["Lower gas","Faster TX","Both"],a:2},
+{q:"Base network is?",o:["Centralized","Decentralized","Hybrid"],a:1},
+{q:"Base is future-ready because?",o:["Scalable","Secure","Both"],a:2},
+{q:"Base supports mass adoption?",o:["Yes","No","Limited"],a:0},
+{q:"Base was built using OP Stack?",o:["Yes","No","Planned"],a:0},
+{q:"Base focuses on developers?",o:["Yes","No","Only users"],a:0},
+{q:"Base brings users onchain by?",o:["Reducing fees","Improving UX","Both"],a:2},
+{q:"Base aims to onboard?",o:["1M users","100M users","Next billion"],a:2}
 ];
+
 let i=0,score=0;
 
 const hero=document.querySelector('.hero');
@@ -237,7 +202,7 @@ pEl.innerHTML='';
 return;
 }
 qEl.innerText=quiz[i].q;
-pEl.innerText=`Question ${i+1}/${quiz.length}`;
+pEl.innerText=`Question ${i+1} / ${quiz.length}`;
 oEl.innerHTML='';
 quiz[i].o.forEach((op,idx)=>{
 let d=document.createElement('div');
