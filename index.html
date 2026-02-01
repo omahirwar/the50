@@ -16,6 +16,7 @@
             overflow-x: hidden;
             animation: bgShift 15s infinite alternate;
             scroll-behavior: smooth;
+            cursor: pointer;
         }
         @keyframes bgShift {
             0% { background: linear-gradient(135deg, #ffffff, #ff0000, #0000ff, #ffffff); }
@@ -356,6 +357,50 @@
             transform: scale(1.1);
             box-shadow: 0 12px 30px rgba(255,0,0,0.6);
         }
+        /* 3D Click Animations - Live Wallpaper Style */
+        .click-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,0,0,0.6), rgba(0,82,255,0.4), transparent);
+            pointer-events: none;
+            animation: ripple 1s ease-out forwards;
+            z-index: 999;
+        }
+        @keyframes ripple {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        .click-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(45deg, #ff0000, #0000ff, #ffffff);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 2s ease-out forwards;
+            z-index: 999;
+        }
+        @keyframes particleFloat {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+        .click-bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.5);
+            border: 2px solid #0052ff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: bubbleRise 3s ease-out forwards;
+            z-index: 999;
+        }
+        @keyframes bubbleRise {
+            0% { transform: scale(0) translateY(0); opacity: 1; }
+            50% { transform: scale(1) translateY(-50px); opacity: 0.7; }
+            100% { transform: scale(0) translateY(-100px); opacity: 0; }
+        }
         /* Animations */
         .firecracker {
             position: fixed;
@@ -426,49 +471,4 @@
 <section class="hero" id="home">
     <div class="hero-content">
         <h1>Base</h1>
-        <p>A secure, low-cost, developer-friendly Ethereum Layer 2 built to bring the next billion users onchain.</p>
-        <button class="btn" onclick="startQuiz()">Start Quiz</button>
-    </div>
-</section>
-
-<section class="features" id="features">
-    <h2>Why Build on Base?</h2>
-    <div class="feature-grid">
-        <div class="feature">
-            <i class="fas fa-layer-group"></i>
-            <h3>Ethereum L2</h3>
-            <p>Built on Optimism’s OP Stack and secured by Ethereum.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-bolt"></i>
-            <h3>Low Fees</h3>
-            <p>Extremely low transaction costs for users and developers.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-code"></i>
-            <h3>Developer Friendly</h3>
-            <p>Fully EVM-compatible with powerful tooling.</p>
-        </div>
-    </div>
-</section>
-
-<section class="testimonials" id="ecosystem">
-    <h2>Base Ecosystem</h2>
-    <div class="testimonial-grid">
-        <div class="testimonial">
-            <p>DeFi protocols, NFTs, SocialFi, Gaming and more.</p>
-            <strong>Onchain Apps</strong>
-        </div>
-        <div class="testimonial">
-            <p>Supported by Coinbase and the global Ethereum community.</p>
-            <strong>Strong Backing</strong>
-        </div>
-        <div class="testimonial">
-            <p>Designed for massive onchain adoption.</p>
-            <strong>Future Ready</strong>
-        </div>
-    </div>
-</section>
-
-<section class="gallery" id="gallery">
-    <h2
+        <p>A secure, low-cost, developer-friendly Ethereum Layer
