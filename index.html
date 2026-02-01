@@ -1,200 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base – Build the Future Onchain</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* 🔥 DESIGN SAME – NO CHANGE 🔥 */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #ffffff, #ff0000, #0000ff, #ffffff);
-            color: #333;
-            overflow-x: hidden;
-            animation: bgShift 15s infinite alternate;
-            scroll-behavior: smooth;
-        }
-        @keyframes bgShift {
-            0% { background: linear-gradient(135deg, #ffffff, #ff0000, #0000ff, #ffffff); }
-            100% { background: linear-gradient(135deg, #0000ff, #ffffff, #ff0000, #0000ff); }
-        }
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-        nav a {
-            color: #ff0000;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: url('https://base.org/og.png') no-repeat center/cover;
-        }
-        .hero-content {
-            background: rgba(255,255,255,0.85);
-            padding: 40px;
-            border-radius: 20px;
-        }
-        .hero h1 {
-            font-size: 4em;
-            color: #0052ff;
-        }
-        .hero p {
-            font-size: 1.4em;
-        }
-        .btn {
-            background: linear-gradient(45deg, #0052ff, #000);
-            color: #fff;
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .features, .gallery {
-            padding: 80px 20px;
-            text-align: center;
-            background: rgba(255,255,255,0.9);
-        }
-        .features h2, .gallery h2, .testimonials h2 {
-            font-size: 3em;
-            color: #0052ff;
-        }
-        .feature-grid, .testimonial-grid, .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .feature, .testimonial, .gallery-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .feature i {
-            font-size: 3em;
-            color: #0052ff;
-            margin-bottom: 15px;
-        }
-        .testimonials {
-            padding: 80px 20px;
-            background: linear-gradient(45deg, #0052ff, #ffffff);
-        }
-        .gallery-item {
-            height: 180px;
-            background: linear-gradient(45deg, #0052ff, #ffffff);
-        }
-        footer {
-            background: linear-gradient(45deg, #0052ff, #000);
-            padding: 30px;
-            text-align: center;
-            color: #fff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base – Build the Future Onchain</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+body{
+    font-family:Poppins,sans-serif;
+    margin:0;
+    background:linear-gradient(135deg,#ffffff,#ff0000,#0000ff,#ffffff);
+    animation:bgShift 15s infinite alternate;
+}
+@keyframes bgShift{
+    0%{background:linear-gradient(135deg,#fff,#ff0000,#0000ff,#fff);}
+    100%{background:linear-gradient(135deg,#0000ff,#fff,#ff0000,#0000ff);}
+}
+header{
+    position:fixed;
+    top:0;width:100%;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(20px);
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    z-index:100;
+}
+nav{display:flex;justify-content:center;gap:40px;}
+nav a{text-decoration:none;font-weight:600;color:#ff0000;}
+
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url('https://base.org/og.png') center/cover no-repeat;
+}
+.hero-content{
+    background:rgba(255,255,255,.88);
+    padding:45px;
+    border-radius:25px;
+    box-shadow:0 0 40px rgba(0,82,255,.6);
+    text-align:center;
+}
+.hero h1{font-size:4em;color:#0052ff;}
+.hero p{font-size:1.4em;}
+
+.btn{
+    background:linear-gradient(45deg,#0052ff,#000);
+    padding:18px 40px;
+    color:#fff;
+    border-radius:50px;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:25px;
+    font-weight:bold;
+    box-shadow:0 0 25px rgba(0,82,255,.9);
+    animation:pulse 2s infinite alternate;
+}
+@keyframes pulse{
+    from{box-shadow:0 0 20px rgba(0,82,255,.6);}
+    to{box-shadow:0 0 45px rgba(0,82,255,1);}
+}
+
+/* ===== QUIZ UI ===== */
+.quiz-section{
+    display:none;
+    min-height:100vh;
+    background:radial-gradient(circle at top,#0a1cff,#000);
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+}
+.quiz-card{
+    width:90%;
+    max-width:720px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(25px);
+    border-radius:30px;
+    padding:45px;
+    box-shadow:0 0 60px rgba(0,82,255,.9);
+    animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+.quiz-question{
+    font-size:1.6em;
+    margin-bottom:25px;
+}
+.quiz-option{
+    background:linear-gradient(135deg,#0052ff,#000);
+    padding:16px 20px;
+    margin:12px 0;
+    border-radius:15px;
+    cursor:pointer;
+    transition:.4s;
+}
+.quiz-option:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 25px rgba(0,82,255,.9);
+}
+.correct{background:linear-gradient(135deg,#00ff88,#006b44);}
+.wrong{background:linear-gradient(135deg,#ff0044,#6b001f);}
+
+.features,.gallery{
+    padding:90px 20px;
+    background:rgba(255,255,255,.92);
+    text-align:center;
+}
+.features h2,.gallery h2,.testimonials h2{
+    font-size:3em;
+    color:#0052ff;
+}
+.feature-grid,.testimonial-grid,.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
+}
+.feature,.testimonial,.gallery-item{
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.feature i{font-size:3em;color:#0052ff;margin-bottom:15px;}
+
+.testimonials{
+    padding:90px 20px;
+    background:linear-gradient(45deg,#0052ff,#fff);
+}
+.gallery-item{height:180px;background:linear-gradient(45deg,#0052ff,#fff);}
+footer{
+    background:linear-gradient(45deg,#0052ff,#000);
+    padding:30px;
+    color:#fff;
+    text-align:center;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Why Base</a>
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#gallery">Builders</a>
-        <a href="#contact">Links</a>
-    </nav>
+<nav>
+<a href="#home">Home</a>
+<a href="#features">Why Base</a>
+<a href="#ecosystem">Ecosystem</a>
+<a href="#gallery">Builders</a>
+<a href="#contact">Links</a>
+</nav>
 </header>
 
 <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Base</h1>
-        <p>A secure, low-cost, developer-friendly Ethereum Layer 2 built to bring the next billion users onchain.</p>
-        <a href="https://base.org" target="_blank" class="btn">Explore Base</a>
-    </div>
+<div class="hero-content">
+<h1>Base</h1>
+<p>A secure, low-cost, developer-friendly Ethereum Layer-2 built for the next billion users.</p>
+<a class="btn" id="startQuiz">🚀 Start Base Quiz</a>
+</div>
+</section>
+
+<section class="quiz-section" id="quiz">
+<div class="quiz-card">
+<div class="quiz-question" id="question"></div>
+<div id="options"></div>
+<p id="progress"></p>
+</div>
 </section>
 
 <section class="features" id="features">
-    <h2>Why Build on Base?</h2>
-    <div class="feature-grid">
-        <div class="feature">
-            <i class="fas fa-layer-group"></i>
-            <h3>Ethereum L2</h3>
-            <p>Built on Optimism’s OP Stack and secured by Ethereum.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-bolt"></i>
-            <h3>Low Fees</h3>
-            <p>Extremely low transaction costs for users and developers.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-code"></i>
-            <h3>Developer Friendly</h3>
-            <p>Fully EVM-compatible with powerful tooling.</p>
-        </div>
-    </div>
+<h2>Why Build on Base?</h2>
+<div class="feature-grid">
+<div class="feature"><i class="fas fa-layer-group"></i><h3>Ethereum L2</h3><p>Built on OP Stack and secured by Ethereum.</p></div>
+<div class="feature"><i class="fas fa-bolt"></i><h3>Low Fees</h3><p>Ultra-low transaction costs.</p></div>
+<div class="feature"><i class="fas fa-code"></i><h3>Developer Friendly</h3><p>Fully EVM compatible.</p></div>
+</div>
 </section>
 
 <section class="testimonials" id="ecosystem">
-    <h2>Base Ecosystem</h2>
-    <div class="testimonial-grid">
-        <div class="testimonial">
-            <p>DeFi protocols, NFTs, SocialFi, Gaming and more.</p>
-            <strong>Onchain Apps</strong>
-        </div>
-        <div class="testimonial">
-            <p>Supported by Coinbase and the global Ethereum community.</p>
-            <strong>Strong Backing</strong>
-        </div>
-        <div class="testimonial">
-            <p>Designed for massive onchain adoption.</p>
-            <strong>Future Ready</strong>
-        </div>
-    </div>
+<h2>Base Ecosystem</h2>
+<div class="testimonial-grid">
+<div class="testimonial"><p>DeFi, NFTs, Gaming & Social apps.</p><strong>Onchain Apps</strong></div>
+<div class="testimonial"><p>Backed by Coinbase.</p><strong>Strong Support</strong></div>
+<div class="testimonial"><p>Built for mass adoption.</p><strong>Future Ready</strong></div>
+</div>
 </section>
 
 <section class="gallery" id="gallery">
-    <h2>Built on Base</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-    </div>
+<h2>Built on Base</h2>
+<div class="gallery-grid">
+<div class="gallery-item"></div><div class="gallery-item"></div>
+<div class="gallery-item"></div><div class="gallery-item"></div>
+<div class="gallery-item"></div><div class="gallery-item"></div>
+</div>
 </section>
 
 <footer id="contact">
-    <p>
-        © 2026 Base •  
-        <a href="https://base.org" target="_blank" style="color:#fff;">Website</a> | 
-        <a href="https://docs.base.org" target="_blank" style="color:#fff;">Docs</a> | 
-        <a href="https://twitter.com/base" target="_blank" style="color:#fff;">X (Twitter)</a> | 
-        <a href="https://discord.gg/buildonbase" target="_blank" style="color:#fff;">Discord</a>
-    </p>
+<p>© 2026 Base • 
+<a href="https://base.org" target="_blank" style="color:#fff">Website</a> | 
+<a href="https://docs.base.org" target="_blank" style="color:#fff">Docs</a> | 
+<a href="https://twitter.com/base" target="_blank" style="color:#fff">X</a> | 
+<a href="https://discord.gg/buildonbase" target="_blank" style="color:#fff">Discord</a>
+</p>
 </footer>
+
+<script>
+const quiz=[
+{q:"What is Base?",o:["Ethereum Layer 2","Layer 1","Sidechain"],a:0},
+{q:"Who supports Base?",o:["Binance","Coinbase","Polygon"],a:1},
+{q:"Base uses which stack?",o:["OP Stack","ZK Stack","Cosmos"],a:0},
+{q:"Base settles on?",o:["Solana","Ethereum","Base"],a:1},
+{q:"Goal of Base?",o:["Trading","NFT only","Next billion users"],a:2}
+];
+let i=0,score=0;
+
+const hero=document.querySelector('.hero');
+const quizSec=document.getElementById('quiz');
+const qEl=document.getElementById('question');
+const oEl=document.getElementById('options');
+const pEl=document.getElementById('progress');
+
+document.getElementById('startQuiz').onclick=()=>{
+hero.style.display='none';
+quizSec.style.display='flex';
+load();
+};
+
+function load(){
+if(i>=quiz.length){
+qEl.innerHTML=`🎉 Quiz Completed<br>Score: ${score}/${quiz.length}`;
+oEl.innerHTML='';
+pEl.innerHTML='';
+return;
+}
+qEl.innerText=quiz[i].q;
+pEl.innerText=`Question ${i+1}/${quiz.length}`;
+oEl.innerHTML='';
+quiz[i].o.forEach((op,idx)=>{
+let d=document.createElement('div');
+d.className='quiz-option';
+d.innerText=op;
+d.onclick=()=>{
+if(idx===quiz[i].a){d.classList.add('correct');score++;}
+else d.classList.add('wrong');
+setTimeout(()=>{i++;load();},700);
+};
+oEl.appendChild(d);
+});
+}
+</script>
 
 </body>
 </html>
