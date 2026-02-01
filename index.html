@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultra Premium Colorful UI</title>
+    <title>Ultra Premium Blue-Red-White UI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e, #fecfef, #a8edea);
+            background: linear-gradient(135deg, #ffffff, #ff0000, #0000ff, #ffffff);
             color: #333;
             overflow-x: hidden;
             animation: bgShift 15s infinite alternate;
             scroll-behavior: smooth;
         }
         @keyframes bgShift {
-            0% { background: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e, #fecfef, #a8edea); }
-            100% { background: linear-gradient(135deg, #a8edea, #fed6e3, #d299c2, #fef9d7, #c7e9b0); }
+            0% { background: linear-gradient(135deg, #ffffff, #ff0000, #0000ff, #ffffff); }
+            100% { background: linear-gradient(135deg, #0000ff, #ffffff, #ff0000, #0000ff); }
         }
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -40,7 +40,7 @@
             gap: 40px;
         }
         nav a {
-            color: #ff6b6b;
+            color: #ff0000;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1em;
@@ -54,7 +54,7 @@
             height: 2px;
             bottom: -5px;
             left: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #ff0000, #0000ff);
             transition: all 0.4s ease;
         }
         nav a:hover::after {
@@ -62,7 +62,7 @@
             left: 0;
         }
         nav a:hover {
-            color: #4ecdc4;
+            color: #0000ff;
             transform: scale(1.1) rotate(2deg);
         }
         .hero {
@@ -71,7 +71,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('https://via.placeholder.com/1920x1080/ffecd2/ff6b6b?text=Ultra+Premium+Background') no-repeat center/cover;
+            background: url('https://via.placeholder.com/1920x1080/ffffff/ff0000?text=Blue-Red-White+Premium') no-repeat center/cover;
             position: relative;
             overflow: hidden;
             transition: all 0.6s ease;
@@ -106,12 +106,12 @@
         .hero h1 {
             font-size: 4em;
             margin: 0;
-            color: #ff6b6b;
+            color: #ff0000;
             text-shadow: 3px 3px 6px rgba(255,255,255,0.8);
             transition: all 0.5s ease;
         }
         .hero h1:hover {
-            color: #4ecdc4;
+            color: #0000ff;
             transform: rotateY(10deg);
         }
         .hero p {
@@ -120,7 +120,7 @@
             color: #333;
         }
         .btn {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #ff0000, #0000ff);
             color: #fff;
             padding: 18px 40px;
             text-decoration: none;
@@ -128,7 +128,7 @@
             font-weight: bold;
             font-size: 1.2em;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(255,107,107,0.5);
+            box-shadow: 0 8px 25px rgba(255,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
@@ -147,7 +147,7 @@
         }
         .btn:hover {
             transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 12px 35px rgba(78,205,196,0.7);
+            box-shadow: 0 12px 35px rgba(0,0,255,0.7);
         }
         .features {
             padding: 80px 20px;
@@ -159,11 +159,11 @@
         .features h2 {
             font-size: 3em;
             margin-bottom: 50px;
-            color: #ff6b6b;
+            color: #ff0000;
             transition: all 0.4s ease;
         }
         .features h2:hover {
-            color: #4ecdc4;
+            color: #0000ff;
             transform: scale(1.1);
         }
         .feature-grid {
@@ -174,7 +174,7 @@
             margin: 0 auto;
         }
         .feature {
-            background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+            background: linear-gradient(45deg, #ffffff, #ff0000);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -198,25 +198,25 @@
         }
         .feature:hover {
             transform: translateY(-15px) rotateY(10deg);
-            box-shadow: 0 20px 50px rgba(255,107,107,0.4);
+            box-shadow: 0 20px 50px rgba(255,0,0,0.4);
         }
         .feature i {
             font-size: 3em;
-            color: #ff6b6b;
+            color: #ff0000;
             margin-bottom: 20px;
         }
         .feature h3 {
             margin-top: 0;
-            color: #ff6b6b;
+            color: #ff0000;
         }
         .testimonials {
             padding: 80px 20px;
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            background: linear-gradient(45deg, #0000ff, #ffffff);
             text-align: center;
         }
         .testimonials h2 {
             font-size: 3em;
-            color: #ff6b6b;
+            color: #ff0000;
         }
         .testimonial-grid {
             display: grid;
@@ -243,7 +243,7 @@
         }
         .gallery h2 {
             font-size: 3em;
-            color: #4ecdc4;
+            color: #0000ff;
         }
         .gallery-grid {
             display: grid;
@@ -253,7 +253,7 @@
             margin: 0 auto;
         }
         .gallery-item {
-            background: linear-gradient(45deg, #d299c2, #fef9d7);
+            background: linear-gradient(45deg, #ff0000, #ffffff);
             height: 200px;
             border-radius: 10px;
             transition: all 0.4s ease;
@@ -264,7 +264,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         footer {
-            background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+            background: linear-gradient(45deg, #0000ff, #ff0000);
             padding: 30px;
             text-align: center;
             color: #fff;
@@ -278,7 +278,7 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            background: #ff6b6b;
+            background: #ff0000;
             border-radius: 50%;
             pointer-events: none;
             animation: particleAnim 1s ease-out forwards;
@@ -330,8 +330,8 @@
     </header>
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Ultra Premium Colorful Design</h1>
-            <p>Touch anywhere for magical animations and premium vibes!</p>
+            <h1>Ultra Premium Blue-Red-White Design</h1>
+            <p>Touch anywhere for magical animations in vibrant colors!</p>
             <a href="#features" class="btn">Discover More</a>
         </div>
     </section>
@@ -351,7 +351,7 @@
             <div class="feature">
                 <i class="fas fa-palette"></i>
                 <h3>Customizable Colors</h3>
-                <p>Bright, colorful themes tailored to your vision.</p>
+                <p>Blue, red, white themes tailored to your vision.</p>
             </div>
         </div>
     </section>
@@ -363,7 +363,7 @@
                 <strong>- User 1</strong>
             </div>
             <div class="testimonial">
-                <p>"Premium feel with bright colors – perfect for my brand."</p>
+                <p>"Premium feel with blue-red-white colors – perfect for my brand."</p>
                 <strong>- User 2</strong>
             </div>
             <div class="testimonial">
@@ -384,7 +384,7 @@
         </div>
     </section>
     <footer id="contact">
-        <p>&copy; 2023 Ultra Premium Colorful Design. All rights reserved. | <a href="#" style="color: #fff;">Contact Us</a></p>
+        <p>&copy; 2023 Ultra Premium Blue-Red-White Design. All rights reserved. | <a href="#" style="color: #fff;">Contact Us</a></p>
     </footer>
 </body>
 </html>
