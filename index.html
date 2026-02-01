@@ -12,6 +12,7 @@ body{
     margin:0;
     background:linear-gradient(135deg,#ffffff,#ff0000,#0000ff,#ffffff);
     animation:bgShift 15s infinite alternate;
+    cursor: pointer; /* Added for better interaction */
 }
 @keyframes bgShift{
     0%{background:linear-gradient(135deg,#fff,#ff0000,#0000ff,#fff);}
@@ -104,6 +105,51 @@ nav a{text-decoration:none;font-weight:600;color:#ff0000;}
 }
 .correct{background:linear-gradient(135deg,#00ff88,#006b44);}
 .wrong{background:linear-gradient(135deg,#ff0044,#6b001f);}
+
+/* ===== 3D Click Animations - Live Wallpaper Style ===== */
+.click-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,0,0,0.6), rgba(0,82,255,0.4), transparent);
+    pointer-events: none;
+    animation: ripple 1s ease-out forwards;
+    z-index: 999;
+}
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+.click-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #ff0000, #0000ff, #ffffff);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 2s ease-out forwards;
+    z-index: 999;
+}
+@keyframes particleFloat {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+.click-bubble {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid #0052ff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: bubbleRise 3s ease-out forwards;
+    z-index: 999;
+}
+@keyframes bubbleRise {
+    0% { transform: scale(0) translateY(0); opacity: 1; }
+    50% { transform: scale(1) translateY(-50px); opacity: 0.7; }
+    100% { transform: scale(0) translateY(-100px); opacity: 0; }
+}
 </style>
 </head>
 
@@ -216,6 +262,37 @@ setTimeout(()=>{i++;load();},700);
 oEl.appendChild(d);
 });
 }
+
+// ===== 3D Click Animation Script =====
+document.addEventListener('click', function(e) {
+    // Ripple effect
+    const ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = `${e.clientX - 25}px`;
+    ripple.style.top = `${e.clientY - 25}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 1000);
+
+    // Particles
+    for (let j = 0; j < 5; j++) {
+        const particle = document.createElement('div');
+        particle.className = 'click-particle';
+        particle.style.left = `${e.clientX + (Math.random() - 0.5) * 100}px`;
+        particle.style.top = `${e.clientY + (Math.random() - 0.5) * 100}px`;
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 2000);
+    }
+
+    // Bubbles
+    for (let k = 0; k < 3; k++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'click-bubble';
+        bubble.style.left = `${e.clientX + (Math.random() - 0.5) * 50}px`;
+        bubble.style.top = `${e.clientY + (Math.random() - 0.5) * 50}px`;
+        document.body.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 3000);
+    }
+});
 </script>
 
 </body>
