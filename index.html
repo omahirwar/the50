@@ -6,7 +6,7 @@
     <title>Base – Build the Future Onchain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* 🔥 DESIGN SAME – NO CHANGE 🔥 */
+        /* 🔥 ULTRA PREMIUM DESIGN WITH MORE ANIMATIONS 🔥 */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -30,6 +30,11 @@
             position: fixed;
             width: 100%;
             z-index: 100;
+            transition: all 0.5s ease;
+        }
+        header:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
         nav {
             display: flex;
@@ -41,6 +46,26 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1em;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #ff0000, #0000ff);
+            transition: all 0.4s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        nav a:hover {
+            color: #0000ff;
+            transform: scale(1.1) rotate(2deg);
         }
         .hero {
             height: 100vh;
@@ -49,18 +74,61 @@
             justify-content: center;
             text-align: center;
             background: url('https://base.org/og.png') no-repeat center/cover;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s ease;
+        }
+        .hero:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.4);
+            animation: parallax 10s infinite linear;
+        }
+        @keyframes parallax {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
         }
         .hero-content {
             background: rgba(255,255,255,0.85);
             padding: 40px;
             border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            backdrop-filter: blur(15px);
+            animation: fadeInUp 2s ease;
+            transition: all 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
         .hero h1 {
             font-size: 4em;
             color: #0052ff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+        }
+        .hero h1:hover {
+            color: #ff0000;
+            transform: rotateY(10deg);
         }
         .hero p {
             font-size: 1.4em;
+            transition: color 0.3s ease;
+        }
+        .hero p:hover {
+            color: #0000ff;
         }
         .btn {
             background: linear-gradient(45deg, #0052ff, #000);
@@ -72,19 +140,47 @@
             display: inline-block;
             margin-top: 20px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,82,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before {
+            left: 100%;
         }
         .btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
         }
         .features, .gallery {
             padding: 80px 20px;
             text-align: center;
             background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(15px);
+            transition: all 0.5s ease;
+        }
+        .features:hover, .gallery:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
         .features h2, .gallery h2, .testimonials h2 {
             font-size: 3em;
             color: #0052ff;
+            transition: all 0.4s ease;
+        }
+        .features h2:hover, .gallery h2:hover, .testimonials h2:hover {
+            color: #ff0000;
+            transform: scale(1.1);
         }
         .feature-grid, .testimonial-grid, .gallery-grid {
             display: grid;
@@ -98,27 +194,103 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature::before, .testimonial::before, .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .feature:hover::before, .testimonial:hover::before, .gallery-item:hover::before {
+            opacity: 1;
+        }
+        .feature:hover, .testimonial:hover, .gallery-item:hover {
+            transform: translateY(-15px) rotateY(10deg);
+            box-shadow: 0 20px 50px rgba(0,82,255,0.3);
         }
         .feature i {
             font-size: 3em;
             color: #0052ff;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .feature i:hover {
+            color: #ff0000;
+            transform: scale(1.2);
         }
         .testimonials {
             padding: 80px 20px;
             background: linear-gradient(45deg, #0052ff, #ffffff);
+            transition: all 0.5s ease;
+        }
+        .testimonials:hover {
+            transform: scale(1.02);
         }
         .gallery-item {
             height: 180px;
             background: linear-gradient(45deg, #0052ff, #ffffff);
+            cursor: pointer;
         }
         footer {
             background: linear-gradient(45deg, #0052ff, #000);
             padding: 30px;
             text-align: center;
             color: #fff;
+            transition: all 0.4s ease;
         }
-        /* Quiz Styles */
+        footer:hover {
+            transform: scale(1.02);
+        }
+        /* Quiz Styles - Ultra Premium */
+        .quiz-intro {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: introFade 1s ease;
+        }
+        @keyframes introFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .intro-content {
+            background: linear-gradient(45deg, #0052ff, #ffffff);
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: slideIn 1s ease;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .intro-content h2 {
+            font-size: 2.5em;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        .intro-content p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
         .quiz-modal {
             display: none;
             position: fixed;
@@ -130,6 +302,11 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            animation: modalFade 0.5s ease;
+        }
+        @keyframes modalFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .quiz-content {
             background: #fff;
@@ -138,25 +315,46 @@
             max-width: 600px;
             width: 90%;
             text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            animation: bounceIn 0.5s ease;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
         }
         .quiz-question {
             font-size: 1.5em;
             margin-bottom: 20px;
+            color: #0052ff;
         }
         .quiz-input {
             width: 100%;
-            padding: 10px;
+            padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 2px solid #0052ff;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        .quiz-input:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
         }
         .quiz-btn {
-            background: #0052ff;
+            background: linear-gradient(45deg, #0052ff, #ff0000);
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 1.2em;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,82,255,0.4);
+        }
+        .quiz-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,0,0,0.6);
         }
         /* Animations */
         .firecracker {
@@ -273,139 +471,4 @@
 </section>
 
 <section class="gallery" id="gallery">
-    <h2>Built on Base</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-        <div class="gallery-item"></div>
-    </div>
-</section>
-
-<footer id="contact">
-    <p>
-        © 2026 Base •  
-        <a href="https://base.org" target="_blank" style="color:#fff;">Website</a> | 
-        <a href="https://docs.base.org" target="_blank" style="color:#fff;">Docs</a> | 
-        <a href="https://twitter.com/base" target="_blank" style="color:#fff;">X (Twitter)</a> | 
-        <a href="https://discord.gg/buildonbase" target="_blank" style="color:#fff;">Discord</a>
-    </p>
-</footer>
-
-<!-- Quiz Modal -->
-<div class="quiz-modal" id="quizModal">
-    <div class="quiz-content">
-        <div id="quizQuestion"></div>
-        <input type="text" class="quiz-input" id="quizInput" placeholder="Type your answer here">
-        <button class="quiz-btn" onclick="checkAnswer()">Submit</button>
-        <p id="quizScore">Score: 0/40</p>
-    </div>
-</div>
-
-<!-- Animations -->
-<div class="firecracker" id="firecracker">🎆 Correct! 🎆</div>
-<div class="genius" id="genius">You are a Genius! 🎉</div>
-
-<script>
-    const questions = [
-        { q: "What is Base?", a: "Base is an Ethereum Layer-2 blockchain." },
-        { q: "Base is built on top of which blockchain?", a: "Ethereum." },
-        { q: "What is the main goal of Base?", a: "To bring the next billion users onchain." },
-        { q: "Which company supports and incubates Base?", a: "Coinbase." },
-        { q: "Why is Base built on Ethereum?", a: "For security, decentralization, and ecosystem compatibility." },
-        { q: "Who is the primary focus of Base?", a: "Both developers and users." },
-        { q: "Does Base have a full form?", a: "No, “Base” is just a name." },
-        { q: "What is the main use case of Base?", a: "Building scalable, low-cost decentralized applications." },
-        { q: "Which color is most commonly associated with Base branding?", a: "Blue." },
-        { q: "Is Base a public blockchain?", a: "Yes." },
-        { q: "Which technology stack does Base use?", a: "OP Stack (Optimism Stack)." },
-        { q: "Is Base EVM compatible?", a: "Yes." },
-        { q: "How is Base secured?", a: "By Ethereum." },
-        { q: "Are Base transaction fees lower than Ethereum mainnet?", a: "Yes." },
-        { q: "What type of Layer-2 is Base?", a: "Optimistic Rollup." },
-        { q: "Where do Base transactions ultimately settle?", a: "On Ethereum mainnet." },
-        { q: "Which smart contract language is mainly used on Base?", a: "Solidity." },
-        { q: "Can existing Ethereum dApps be deployed on Base?", a: "Yes." },
-        { q: "What is the biggest technical advantage of Base?", a: "Scalability with low fees." },
-        { q: "Base belongs to which broader ecosystem?", a: "Ethereum ecosystem." },
-        { q: "What types of apps can be built on Base?", a: "DeFi, NFTs, games, social apps, and more." },
-        { q: "Why is Base suitable for DeFi?", a: "Low fees and Ethereum security." },
-        { q: "How does Base benefit NFTs?", a: "Cheaper minting and transfers." },
-        { q: "Why is Base good for blockchain games?", a: "Fast transactions and low costs." },
-        { q: "Who is Base mainly designed for?", a: "Developers and everyday users." },
-        { q: "What is Base’s relationship with Coinbase?", a: "Base is incubated and supported by Coinbase." },
-        { q: "What is the official website of Base?", a: "base.org." },
-        { q: "What tools does Base offer developers?", a: "EVM tools, OP Stack tools, and Ethereum tooling." },
-        { q: "Is the Base ecosystem open or closed?", a: "Open." },
-        { q: "What is Base’s long-term vision?", a: "Mass adoption of onchain applications." },
-        { q: "How does Base achieve scalability?", a: "By batching transactions using rollups." },
-        { q: "How does Base maintain decentralization?", a: "By settling on Ethereum." },
-        { q: "What does Base rely on for security?", a: "Ethereum’s security." },
-        { q: "How does Base compare to Ethereum mainnet?", a: "Faster and cheaper, but settles on Ethereum." },
-        { q: "How is Base aligned with Ethereum’s roadmap?", a: "It scales Ethereum without fragmenting it." },
-        { q: "Why can Base adoption grow quickly?", a: "Coinbase support and low entry barriers." },
-        { q: "What problem does Base solve for users?", a: "High gas fees and slow transactions." },
-        { q: "What is the relationship between Base and Optimism?", a: "Base is built using Optimism’s OP Stack." },
-        { q: "What is Base’s strongest advantage?", a: "Combination of low fees, Ethereum security, and strong backing." },
-        { q: "Why is Base called a chain for the “next billion users”?", a: "Because it is designed for scalability, usability, and mass adoption." }
-    ];
-
-    let currentQuestion = 0;
-    let score = 0;
-
-    function startQuiz() {
-        document.getElementById('quizModal').style.display = 'flex';
-        showQuestion();
-    }
-
-    function showQuestion() {
-        if (currentQuestion < questions.length) {
-            document.getElementById('quizQuestion').innerText = questions[currentQuestion].q;
-            document.getElementById('quizInput').value = '';
-            document.getElementById('quizScore').innerText = `Score: ${score}/${questions.length}`;
-        } else {
-            alert(`Quiz Complete! Final Score: ${score}/${questions.length}`);
-            document.getElementById('quizModal').style.display = 'none';
-            currentQuestion = 0;
-            score = 0;
-        }
-    }
-
-    function checkAnswer() {
-        const userAnswer = document.getElementById('quizInput').value.trim().toLowerCase();
-        const correctAnswer = questions[currentQuestion].a.toLowerCase();
-        if (userAnswer === correctAnswer) {
-            score++;
-            showFirecracker();
-        } else {
-            showGenius();
-        }
-        currentQuestion++;
-        setTimeout(showQuestion, 2000);
-    }
-
-    function showFirecracker() {
-        const firecracker = document.getElementById('firecracker');
-        firecracker.style.display = 'flex';
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            firecracker.appendChild(particle);
-            setTimeout(() => particle.remove(), 1000);
-        }
-        setTimeout(() => firecracker.style.display = 'none', 2000);
-    }
-
-    function showGenius() {
-        const genius = document.getElementById('genius');
-        genius.style.display = 'flex';
-        setTimeout(() => genius.style.display = 'none', 2000);
-    }
-</script>
-
-</body>
-</html>
+    <h2
