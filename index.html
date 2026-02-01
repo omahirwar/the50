@@ -71,6 +71,11 @@
             font-weight: bold;
             display: inline-block;
             margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.1);
         }
         .features, .gallery {
             padding: 80px 20px;
@@ -113,6 +118,99 @@
             text-align: center;
             color: #fff;
         }
+        /* Quiz Styles */
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .quiz-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+        .quiz-question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .quiz-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .quiz-btn {
+            background: #0052ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Animations */
+        .firecracker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 5em;
+            animation: firecrackerAnim 2s ease-out;
+        }
+        @keyframes firecrackerAnim {
+            0% { opacity: 0; }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: particleBurst 1s ease-out forwards;
+        }
+        @keyframes particleBurst {
+            0% { opacity: 1; transform: scale(0); }
+            100% { opacity: 0; transform: scale(1) translateY(-100px); }
+        }
+        .genius {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 5em;
+            animation: geniusAnim 2s ease-out;
+        }
+        @keyframes geniusAnim {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -131,7 +229,7 @@
     <div class="hero-content">
         <h1>Base</h1>
         <p>A secure, low-cost, developer-friendly Ethereum Layer 2 built to bring the next billion users onchain.</p>
-        <a href="https://base.org" target="_blank" class="btn">Explore Base</a>
+        <button class="btn" onclick="startQuiz()">Start Quiz</button>
     </div>
 </section>
 
@@ -195,6 +293,119 @@
         <a href="https://discord.gg/buildonbase" target="_blank" style="color:#fff;">Discord</a>
     </p>
 </footer>
+
+<!-- Quiz Modal -->
+<div class="quiz-modal" id="quizModal">
+    <div class="quiz-content">
+        <div id="quizQuestion"></div>
+        <input type="text" class="quiz-input" id="quizInput" placeholder="Type your answer here">
+        <button class="quiz-btn" onclick="checkAnswer()">Submit</button>
+        <p id="quizScore">Score: 0/40</p>
+    </div>
+</div>
+
+<!-- Animations -->
+<div class="firecracker" id="firecracker">🎆 Correct! 🎆</div>
+<div class="genius" id="genius">You are a Genius! 🎉</div>
+
+<script>
+    const questions = [
+        { q: "What is Base?", a: "Base is an Ethereum Layer-2 blockchain." },
+        { q: "Base is built on top of which blockchain?", a: "Ethereum." },
+        { q: "What is the main goal of Base?", a: "To bring the next billion users onchain." },
+        { q: "Which company supports and incubates Base?", a: "Coinbase." },
+        { q: "Why is Base built on Ethereum?", a: "For security, decentralization, and ecosystem compatibility." },
+        { q: "Who is the primary focus of Base?", a: "Both developers and users." },
+        { q: "Does Base have a full form?", a: "No, “Base” is just a name." },
+        { q: "What is the main use case of Base?", a: "Building scalable, low-cost decentralized applications." },
+        { q: "Which color is most commonly associated with Base branding?", a: "Blue." },
+        { q: "Is Base a public blockchain?", a: "Yes." },
+        { q: "Which technology stack does Base use?", a: "OP Stack (Optimism Stack)." },
+        { q: "Is Base EVM compatible?", a: "Yes." },
+        { q: "How is Base secured?", a: "By Ethereum." },
+        { q: "Are Base transaction fees lower than Ethereum mainnet?", a: "Yes." },
+        { q: "What type of Layer-2 is Base?", a: "Optimistic Rollup." },
+        { q: "Where do Base transactions ultimately settle?", a: "On Ethereum mainnet." },
+        { q: "Which smart contract language is mainly used on Base?", a: "Solidity." },
+        { q: "Can existing Ethereum dApps be deployed on Base?", a: "Yes." },
+        { q: "What is the biggest technical advantage of Base?", a: "Scalability with low fees." },
+        { q: "Base belongs to which broader ecosystem?", a: "Ethereum ecosystem." },
+        { q: "What types of apps can be built on Base?", a: "DeFi, NFTs, games, social apps, and more." },
+        { q: "Why is Base suitable for DeFi?", a: "Low fees and Ethereum security." },
+        { q: "How does Base benefit NFTs?", a: "Cheaper minting and transfers." },
+        { q: "Why is Base good for blockchain games?", a: "Fast transactions and low costs." },
+        { q: "Who is Base mainly designed for?", a: "Developers and everyday users." },
+        { q: "What is Base’s relationship with Coinbase?", a: "Base is incubated and supported by Coinbase." },
+        { q: "What is the official website of Base?", a: "base.org." },
+        { q: "What tools does Base offer developers?", a: "EVM tools, OP Stack tools, and Ethereum tooling." },
+        { q: "Is the Base ecosystem open or closed?", a: "Open." },
+        { q: "What is Base’s long-term vision?", a: "Mass adoption of onchain applications." },
+        { q: "How does Base achieve scalability?", a: "By batching transactions using rollups." },
+        { q: "How does Base maintain decentralization?", a: "By settling on Ethereum." },
+        { q: "What does Base rely on for security?", a: "Ethereum’s security." },
+        { q: "How does Base compare to Ethereum mainnet?", a: "Faster and cheaper, but settles on Ethereum." },
+        { q: "How is Base aligned with Ethereum’s roadmap?", a: "It scales Ethereum without fragmenting it." },
+        { q: "Why can Base adoption grow quickly?", a: "Coinbase support and low entry barriers." },
+        { q: "What problem does Base solve for users?", a: "High gas fees and slow transactions." },
+        { q: "What is the relationship between Base and Optimism?", a: "Base is built using Optimism’s OP Stack." },
+        { q: "What is Base’s strongest advantage?", a: "Combination of low fees, Ethereum security, and strong backing." },
+        { q: "Why is Base called a chain for the “next billion users”?", a: "Because it is designed for scalability, usability, and mass adoption." }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function startQuiz() {
+        document.getElementById('quizModal').style.display = 'flex';
+        showQuestion();
+    }
+
+    function showQuestion() {
+        if (currentQuestion < questions.length) {
+            document.getElementById('quizQuestion').innerText = questions[currentQuestion].q;
+            document.getElementById('quizInput').value = '';
+            document.getElementById('quizScore').innerText = `Score: ${score}/${questions.length}`;
+        } else {
+            alert(`Quiz Complete! Final Score: ${score}/${questions.length}`);
+            document.getElementById('quizModal').style.display = 'none';
+            currentQuestion = 0;
+            score = 0;
+        }
+    }
+
+    function checkAnswer() {
+        const userAnswer = document.getElementById('quizInput').value.trim().toLowerCase();
+        const correctAnswer = questions[currentQuestion].a.toLowerCase();
+        if (userAnswer === correctAnswer) {
+            score++;
+            showFirecracker();
+        } else {
+            showGenius();
+        }
+        currentQuestion++;
+        setTimeout(showQuestion, 2000);
+    }
+
+    function showFirecracker() {
+        const firecracker = document.getElementById('firecracker');
+        firecracker.style.display = 'flex';
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            firecracker.appendChild(particle);
+            setTimeout(() => particle.remove(), 1000);
+        }
+        setTimeout(() => firecracker.style.display = 'none', 2000);
+    }
+
+    function showGenius() {
+        const genius = document.getElementById('genius');
+        genius.style.display = 'flex';
+        setTimeout(() => genius.style.display = 'none', 2000);
+    }
+</script>
 
 </body>
 </html>
